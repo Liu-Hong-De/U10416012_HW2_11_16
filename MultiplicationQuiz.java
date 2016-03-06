@@ -9,22 +9,30 @@ public class MultiplicationQuiz {
 		//generate num1 and num2
 		int num1 = (int)(Math.random() * 10);
 		int num2 = (int)(Math.random() * 10);
-		
+
 		//create a scanner
 		Scanner input = new Scanner(System.in);
 		
 		//show question
-		System.out.println("What is " + num1 + " + " + num2 " ?");
+		System.out.println("What is " + num1 + " + " + num2 + "?");
 		
 		//get first answer and put it into the answer list
 		int ans = input.nextInt();
 		ansList.add(ans);
-		
+
 		//check user's answer is true or false
 		while(num1 + num2 != ans) {
-			System.out.println("Wrong answer. Try again. What is " + num1 + " + " + num2 " ?");
+			System.out.println("Wrong. Try again. What is " + num1 + " + " + num2 + "?");
 			ans = input.nextInt();
-			ansList.add(ans);
+			
+			//check if user entered same answer 
+			if(ansList.contains(ans)) {
+				System.out.println("You already entered " + ans);
+			}
+			
+			else {
+				ansList.add(ans);
+			}
 		}
 		
 		//if answer is true print out "You got it"
